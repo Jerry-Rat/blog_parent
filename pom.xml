@@ -18,8 +18,8 @@
     <inceptionYear>2021</inceptionYear>
     <!--模块（有时称作子项目） 被构建成项目的一部分。列出的每个模块元素是指向该模块的目录的相对路径 -->
     <modules>
-        <module>blog_common</module>
-        <module>blog_web</module>
+        <module>system-base-service</module>
+        <module>blog-web-service</module>
     </modules>
 
     <!--以值替代名称，Properties可以在整个POM中使用，也可以作为触发条件（见settings.xml配置文件里activation元素的说明）。格式是<name>value</name>。 -->
