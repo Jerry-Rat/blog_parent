@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tk.jerryrat.mapper.TMusicMapper">
+  <resultMap id="BaseResultMap" type="tk.jerryrat.domain.TMusic">
+    <!--@mbg.generated-->
+    <!--@Table t_music-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="artist" jdbcType="VARCHAR" property="artist" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="lrc" jdbcType="VARCHAR" property="lrc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, artist, url, cover, lrc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_music
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_music
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="tk.jerryrat.domain.TMusic" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_music (`name`, artist, url, 
+      cover, lrc)
+    values (#{name,jdbcType=VARCHAR}, #{artist,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{cover,jdbcType=VARCHAR}, #{lrc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="tk.jerryrat.domain.TMusic" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_music
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="artist != null">
+        artist,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="cover != null">
+        cover,
+      </if>
+      <if test="lrc != null">
+        lrc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="artist != null">
+        #{artist,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null">
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="lrc != null">
+        #{lrc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tk.jerryrat.domain.TMusic">
+    <!--@mbg.generated-->
+    update t_music
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="artist != null">
+        artist = #{artist,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null">
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="lrc != null">
+        lrc = #{lrc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tk.jerryrat.domain.TMusic">
+    <!--@mbg.generated-->
+    update t_music
+    set `name` = #{name,jdbcType=VARCHAR},
+      artist = #{artist,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      lrc = #{lrc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

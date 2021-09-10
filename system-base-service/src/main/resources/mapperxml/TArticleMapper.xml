@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tk.jerryrat.mapper.TArticleMapper">
+  <resultMap id="BaseResultMap" type="tk.jerryrat.domain.TArticle">
+    <!--@mbg.generated-->
+    <!--@Table t_article-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="read_count" jdbcType="INTEGER" property="readCount" />
+    <result column="con_count" jdbcType="INTEGER" property="conCount" />
+    <result column="star_count" jdbcType="INTEGER" property="starCount" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="markdown_content" jdbcType="LONGVARCHAR" property="markdownContent" />
+    <result column="markdown_type" jdbcType="CHAR" property="markdownType" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="good" jdbcType="CHAR" property="good" />
+    <result column="recommend" jdbcType="CHAR" property="recommend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, pic, title, tag, remark, read_count, con_count, star_count, `state`, user_id, 
+    content, markdown_content, markdown_type, `type`, good, recommend, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_article
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="tk.jerryrat.domain.TArticle" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_article (pic, title, tag, 
+      remark, read_count, con_count, 
+      star_count, `state`, user_id, 
+      content, markdown_content, markdown_type, 
+      `type`, good, recommend, create_time, 
+      update_time)
+    values (#{pic,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{readCount,jdbcType=INTEGER}, #{conCount,jdbcType=INTEGER}, 
+      #{starCount,jdbcType=INTEGER}, #{state,jdbcType=CHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR}, #{markdownContent,jdbcType=LONGVARCHAR}, #{markdownType,jdbcType=CHAR}, 
+      #{type,jdbcType=CHAR}, #{good,jdbcType=CHAR}, #{recommend,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="tk.jerryrat.domain.TArticle" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="readCount != null">
+        read_count,
+      </if>
+      <if test="conCount != null">
+        con_count,
+      </if>
+      <if test="starCount != null">
+        star_count,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="markdownContent != null">
+        markdown_content,
+      </if>
+      <if test="markdownType != null">
+        markdown_type,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="good != null">
+        good,
+      </if>
+      <if test="recommend != null">
+        recommend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="readCount != null">
+        #{readCount,jdbcType=INTEGER},
+      </if>
+      <if test="conCount != null">
+        #{conCount,jdbcType=INTEGER},
+      </if>
+      <if test="starCount != null">
+        #{starCount,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="markdownContent != null">
+        #{markdownContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="markdownType != null">
+        #{markdownType,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="good != null">
+        #{good,jdbcType=CHAR},
+      </if>
+      <if test="recommend != null">
+        #{recommend,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tk.jerryrat.domain.TArticle">
+    <!--@mbg.generated-->
+    update t_article
+    <set>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="readCount != null">
+        read_count = #{readCount,jdbcType=INTEGER},
+      </if>
+      <if test="conCount != null">
+        con_count = #{conCount,jdbcType=INTEGER},
+      </if>
+      <if test="starCount != null">
+        star_count = #{starCount,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="markdownContent != null">
+        markdown_content = #{markdownContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="markdownType != null">
+        markdown_type = #{markdownType,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=CHAR},
+      </if>
+      <if test="good != null">
+        good = #{good,jdbcType=CHAR},
+      </if>
+      <if test="recommend != null">
+        recommend = #{recommend,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tk.jerryrat.domain.TArticle">
+    <!--@mbg.generated-->
+    update t_article
+    set pic = #{pic,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      read_count = #{readCount,jdbcType=INTEGER},
+      con_count = #{conCount,jdbcType=INTEGER},
+      star_count = #{starCount,jdbcType=INTEGER},
+      `state` = #{state,jdbcType=CHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR},
+      markdown_content = #{markdownContent,jdbcType=LONGVARCHAR},
+      markdown_type = #{markdownType,jdbcType=CHAR},
+      `type` = #{type,jdbcType=CHAR},
+      good = #{good,jdbcType=CHAR},
+      recommend = #{recommend,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tk.jerryrat.mapper.ApiLogMapper">
+  <resultMap id="BaseResultMap" type="tk.jerryrat.domain.ApiLog">
+    <!--@mbg.generated-->
+    <!--@Table api_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="module" jdbcType="VARCHAR" property="module" />
+    <result column="controller" jdbcType="VARCHAR" property="controller" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="get_data" jdbcType="LONGVARCHAR" property="getData" />
+    <result column="post_data" jdbcType="LONGVARCHAR" property="postData" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="error_code" jdbcType="INTEGER" property="errorCode" />
+    <result column="error_msg" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="error_data" jdbcType="LONGVARCHAR" property="errorData" />
+    <result column="req_id" jdbcType="VARCHAR" property="reqId" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, member_id, `method`, `module`, controller, `action`, url, get_data, post_data, 
+    ip, error_code, error_msg, error_data, req_id, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from api_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from api_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="tk.jerryrat.domain.ApiLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into api_log (member_id, `method`, `module`, 
+      controller, `action`, url, 
+      get_data, post_data, ip, 
+      error_code, error_msg, error_data, 
+      req_id, `status`)
+    values (#{memberId,jdbcType=INTEGER}, #{method,jdbcType=VARCHAR}, #{module,jdbcType=VARCHAR}, 
+      #{controller,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{getData,jdbcType=LONGVARCHAR}, #{postData,jdbcType=LONGVARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{errorCode,jdbcType=INTEGER}, #{errorMsg,jdbcType=VARCHAR}, #{errorData,jdbcType=LONGVARCHAR}, 
+      #{reqId,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="tk.jerryrat.domain.ApiLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into api_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="method != null">
+        `method`,
+      </if>
+      <if test="module != null">
+        `module`,
+      </if>
+      <if test="controller != null">
+        controller,
+      </if>
+      <if test="action != null">
+        `action`,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="getData != null">
+        get_data,
+      </if>
+      <if test="postData != null">
+        post_data,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="errorCode != null">
+        error_code,
+      </if>
+      <if test="errorMsg != null">
+        error_msg,
+      </if>
+      <if test="errorData != null">
+        error_data,
+      </if>
+      <if test="reqId != null">
+        req_id,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="memberId != null">
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="controller != null">
+        #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="getData != null">
+        #{getData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="postData != null">
+        #{postData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        #{errorCode,jdbcType=INTEGER},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="errorData != null">
+        #{errorData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reqId != null">
+        #{reqId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tk.jerryrat.domain.ApiLog">
+    <!--@mbg.generated-->
+    update api_log
+    <set>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="method != null">
+        `method` = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        `module` = #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="controller != null">
+        controller = #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        `action` = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="getData != null">
+        get_data = #{getData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="postData != null">
+        post_data = #{postData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null">
+        error_code = #{errorCode,jdbcType=INTEGER},
+      </if>
+      <if test="errorMsg != null">
+        error_msg = #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="errorData != null">
+        error_data = #{errorData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reqId != null">
+        req_id = #{reqId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tk.jerryrat.domain.ApiLog">
+    <!--@mbg.generated-->
+    update api_log
+    set member_id = #{memberId,jdbcType=INTEGER},
+      `method` = #{method,jdbcType=VARCHAR},
+      `module` = #{module,jdbcType=VARCHAR},
+      controller = #{controller,jdbcType=VARCHAR},
+      `action` = #{action,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      get_data = #{getData,jdbcType=LONGVARCHAR},
+      post_data = #{postData,jdbcType=LONGVARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      error_code = #{errorCode,jdbcType=INTEGER},
+      error_msg = #{errorMsg,jdbcType=VARCHAR},
+      error_data = #{errorData,jdbcType=LONGVARCHAR},
+      req_id = #{reqId,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

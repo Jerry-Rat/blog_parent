@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tk.jerryrat.mapper.TCommentMapper">
+  <resultMap id="BaseResultMap" type="tk.jerryrat.domain.TComment">
+    <!--@mbg.generated-->
+    <!--@Table t_comment-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="info_id" jdbcType="INTEGER" property="infoId" />
+    <result column="comment_user_id" jdbcType="INTEGER" property="commentUserId" />
+    <result column="target_user_id" jdbcType="INTEGER" property="targetUserId" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="type" jdbcType="CHAR" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, info_id, comment_user_id, target_user_id, content, create_time, `type`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="tk.jerryrat.domain.TComment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_comment (info_id, comment_user_id, target_user_id, 
+      content, create_time, `type`
+      )
+    values (#{infoId,jdbcType=INTEGER}, #{commentUserId,jdbcType=INTEGER}, #{targetUserId,jdbcType=INTEGER}, 
+      #{content,jdbcType=LONGVARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{type,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="tk.jerryrat.domain.TComment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="infoId != null">
+        info_id,
+      </if>
+      <if test="commentUserId != null">
+        comment_user_id,
+      </if>
+      <if test="targetUserId != null">
+        target_user_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="infoId != null">
+        #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUserId != null">
+        #{commentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUserId != null">
+        #{targetUserId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tk.jerryrat.domain.TComment">
+    <!--@mbg.generated-->
+    update t_comment
+    <set>
+      <if test="infoId != null">
+        info_id = #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUserId != null">
+        comment_user_id = #{commentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUserId != null">
+        target_user_id = #{targetUserId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tk.jerryrat.domain.TComment">
+    <!--@mbg.generated-->
+    update t_comment
+    set info_id = #{infoId,jdbcType=INTEGER},
+      comment_user_id = #{commentUserId,jdbcType=INTEGER},
+      target_user_id = #{targetUserId,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      `type` = #{type,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
